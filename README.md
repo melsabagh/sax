@@ -14,9 +14,11 @@ This is based on ``A Symbolic Representation of Time Series, with Implications f
 
 Simply include `saxquantizer.hpp` in your project, and use the provided functions from the SaxQuantizer namespace. 
 
+See [docs](https://htmlpreview.github.io/?https://github.com/melsabagh/sax/blob/master/docs/docs.html) for detailed description.
+
 ---
 ### Example: 
-```
+```C++
 #include <vector>
 #include <iostream>
 #include "saxquantizer.hpp"
@@ -43,17 +45,6 @@ int main(int argc, char **argv) {
     delim = ", ";
   }
   std::cout << std::endl;
-
 }
 ```
 
----
-### Public Member Functions
-
-* Sax (size_t window_size, size_t string_size, size_t alphabet_size)
-* template<typename Container > void train (const Container &samples)
-* template<typename Container > size_t quantize (const Container &seq, vector< int > *qseq, bool reduce=true)
-* size_t order () const
-* double ratio () const
-
-See `docs` for detailed description.
