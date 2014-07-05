@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0100)file:///Users/mohamed/Workspace/phd/research/stonesoup/pst/sax/html/class_sax_quantizer_1_1_sax.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="generator" content="Doxygen 1.8.9.1">
+<title> SaxQuantizer::Sax Class Reference</title>
+<link href="./docs_files/doxygen.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="header">
+  <div class="headertitle">
+    <div class="title">SaxQuantizer::Sax Class Reference</div>  </div>
+  </div><!--header-->
+<div class="contents">
+
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Symbolic Aggregate Approximation with fractional sliding window, numerosity reduction, and scaling </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5c5667aea2d2fc05d9438a843dc9d577"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">SaxQuantizer::Sax::Sax </td>
+          <td>(</td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"><em>window_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"><em>string_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"><em>alphabet_size</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p>Constructs a SAX quantizer of a given window size, string size and alphabet size. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramname">&lt;window_size&gt;</td><td>sliding window size </td></tr>
+    <tr><td class="paramname">&lt;string_size&gt;</td><td>output string size for each sliding window (can be greater than window_size) </td></tr>
+    <tr><td class="paramname">&lt;alphabet_size&gt;</td><td>number of codewords </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+
+<a class="anchor" id="a2909a5269af85570c2ea812856fee4c8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">void SaxQuantizer::Sax::train </td>
+          <td>(</td>
+          <td class="paramtype">const Container &amp;&nbsp;</td>
+          <td class="paramname"><em>samples</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p>Trains the quantizer from a given sample. This sets the baseline mean and stdevs, which are used in normalizing the input.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramname">&lt;samples&gt;</td><td>list of training values </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+<a class="anchor" id="aba941ef08867db8d89054fb0ecbd4c60"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">size_t SaxQuantizer::Sax::quantize </td>
+          <td>(</td>
+          <td class="paramtype">const Container &amp;&nbsp;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; int &gt; *&nbsp;</td>
+          <td class="paramname"><em>qseq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramname"><em>reduce</em> = <code>true</code>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p>Quantizes the given input sequence into a discrete alphabet using SAX. Calling this method will also train the quantizer using the input sequence, if not already trained.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramname">&lt;seq&gt;</td><td>the input sequence to be quantized </td></tr>
+    <tr><td class="paramname">&lt;qseq&gt;</td><td>(out): quantized output sequence </td></tr>
+    <tr><td class="paramname">reduce</td><td>(default true): if true, applies run-length numerosity reduction</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<p>Returns the number of consumed symbols from the input sequence. </p>
+
+</div>
+</div>
+
+<a class="anchor" id="a4575e66d2539844fc91b7b7bdd6d9fa7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">size_t SaxQuantizer::Sax::order </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p>Returns the order of the quantizer (here, the window size) </p>
+
+</div>
+</div>
+
+<a class="anchor" id="a0ec992badf142d02f18dc6556bd836d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">double SaxQuantizer::Sax::ratio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p>Returns the compression ratio of the quantizer (input size / output size) </p>
+
+</div>
+</div>
+</div><!-- contents -->
+
+
+</body></html>
