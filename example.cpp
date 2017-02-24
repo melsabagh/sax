@@ -11,10 +11,8 @@ int main(int argc, char **argv) {
   vector<int> output;
   sax.quantize(input, &output, false); // true for reduction
 
-  string delim = "";
   cout << "input:";
   for (const auto & x : input) cout << " " << x;
-
   cout << endl;
 
   cout << "output:";
